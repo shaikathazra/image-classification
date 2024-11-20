@@ -37,7 +37,7 @@ training_labels=training_labels[:50000]
 testing_images=testing_images[:10000]
 testing_labels=testing_labels[:10000]
 
-
+'''
 model=models.Sequential()
 model.add(layers.Conv2D(32,(3,3),activation='relu',input_shape=(32,32,3)))
 model.add(layers.MaxPooling2D((2,2)))
@@ -56,9 +56,9 @@ model.fit(training_images, training_labels, epochs=10, validation_data=(testing_
 loss, accuracy =model.evaluate(testing_images,testing_labels)
 print(f"Loss:{loss}")
 print(f"Accuracy:{accuracy}")
-'''
+
 model.save('img_classifier.model')
-'''
+
 #model.save('img_classifier.h5')  # Save as an HDF5 file
 model.save('img_classifier.keras')  # Save as a `.keras` file
 
@@ -67,16 +67,17 @@ model.save('img_classifier.keras')  # Save as a `.keras` file
 model = models.load_model('img_classifier.keras')
 
 
-img = cv.imread('car.jpg')
+img = cv.imread('cat.jpg')
 img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
 plt.imshow(img, cmap=plt.cm.binary)
 
-prediction = model.prediction(np.array([img]) /255)
-index = np.argmax(prediction)
-print(f"Prediction is{class_name[index]}")
 
-'''
+predict = model.predict(np.array([img]) /255)
+index = np.argmax(predict)
+print(f"Prediction is {class_name[index]}")
+plt.show()
+
 
 
 
