@@ -67,7 +67,7 @@ model.save('img_classifier.keras')  # Save as a `.keras` file
 model = models.load_model('img_classifier.keras')
 
 
-img = cv.imread('cat.jpg')
+img = cv.imread('cat2.jpg')
 img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
 plt.imshow(img, cmap=plt.cm.binary)
