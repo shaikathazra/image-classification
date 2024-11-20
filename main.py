@@ -61,6 +61,14 @@ model.save('img_classifier.model')
 '''
 model= models.load_model('img_classifier.model')
 
+img = cv.imread('car.jpg')
+img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+
+plt.imshow(img, cmap=plt.cm.binary)
+
+prediction = model.prediction(np.array([img]) /255)
+index = np.argmax(prediction)
+print(f"Prediction is{class_name[index]}")
 
 
 
