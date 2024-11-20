@@ -37,7 +37,7 @@ training_labels=training_labels[:50000]
 testing_images=testing_images[:10000]
 testing_labels=testing_labels[:10000]
 
-
+'''
 model=models.Sequential()
 model.add(layers.Conv2D(32,(3,3),activation='relu',input_shape=(32,32,3)))
 model.add(layers.MaxPooling2D((2,2)))
@@ -60,7 +60,7 @@ print(f"Accuracy:{accuracy}")
 model.save('img_classifier.model')
 '''
 model= models.load_model('img_classifier.model')
-'''
+
 
 
 
